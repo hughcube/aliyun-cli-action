@@ -1,0 +1,102 @@
+name: 'Setup Aliyun CLI'
+description: 'Setup Aliyun command line tool, add it to the PATH and configure authentication'
+author: 'jerray'
+inputs:
+  aliyun-cli-version:
+    required: false
+    description: 'Version of aliyun cli'
+  mode:
+    required: false
+    description: '{AK|StsToken|RamRoleArn|EcsRamRole|RsaKeyPair|RamRoleArnWithRoleName}` to assign authenticate mode'
+  profile:
+    required: false
+    description: 'use `--profile <profileName>` to select profile'
+  language:
+    required: false
+    description: 'use `--language [en|zh]` to assign language'
+  region:
+    required: false
+    description: 'use `--region <regionId>` to assign region'
+  config-path:
+    required: false
+    description: 'use `--config-path` to specify the configuration file path'
+  access-key-id:
+    required: false
+    description: 'use `--access-key-id <AccessKeyId>` to assign AccessKeyId, required in AK/StsToken/RamRoleArn mode'
+  access-key-secret:
+    required: false
+    description: 'use `--access-key-secret <AccessKeySecret>` to assign AccessKeySecret'
+  sts-token:
+    required: false
+    description: 'use `--sts-token <StsToken>` to assign StsToken'
+  ram-role-name:
+    required: false
+    description: 'use `--ram-role-name <RamRoleName>` to assign RamRoleName'
+  ram-role-arn:
+    required: false
+    description: 'use `--ram-role-arn <RamRoleArn>` to assign RamRoleArn'
+  role-session-name:
+    required: false
+    description: 'use `--role-session-name <RoleSessionName>` to assign RoleSessionName'
+  private-key:
+    required: false
+    description: 'use `--private-key <PrivateKey>` to assign RSA PrivateKey'
+  key-pair-name:
+    required: false
+    description: 'use `--key-pair-name <KeyPairName>` to assign KeyPairName'
+  read-timeout:
+    required: false
+    description: 'use `--read-timeout <seconds>` to set I/O timeout(seconds)'
+  connect-timeout:
+    required: false
+    description: 'use `--connect-timeout <seconds>` to set connect timeout(seconds)'
+  retry-count:
+    required: false
+    description: 'use `--retry-count <count>` to set retry count'
+  skip-secure-verify:
+    required: false
+    description: 'use `--skip-secure-verify` to skip https certification validate [Not recommended]'
+  expired-seconds:
+    required: false
+    description: 'use `--expired-seconds <seconds>` to specify expiration time'
+  secure:
+    required: false
+    description: 'use `--secure` to force https'
+  force:
+    required: false
+    description: 'use `--force` to skip api and parameters check'
+  endpoint:
+    required: false
+    description: 'use `--endpoint <endpoint>` to assign endpoint'
+  version:
+    required: false
+    description: 'use `--version <YYYY-MM-DD>` to assign product api version'
+  header:
+    required: false
+    description: 'use `--header X-foo=bar` to add custom HTTP header, repeatable'
+  body:
+    required: false
+    description: 'use `--body $(cat foo.json)` to assign http body in RESTful call'
+  pager:
+    required: false
+    description: 'use `--pager` to merge pages for pageable APIs'
+  output:
+    required: false
+    description: 'use `--output cols=Field1,Field2 [rows=jmesPath]` to print output as table'
+  waiter:
+    required: false
+    description: 'use `--waiter expr=<jmesPath> to=<value>` to pull api until result equal to expected value'
+  dryrun:
+    required: false
+    description: 'add `--dryrun` to validate and print request without running.'
+  quiet:
+    required: false
+    description: 'add `--quiet` to hide normal output'
+
+runs:
+  using: 'node12'
+  main: 'index.js'
+
+branding:
+  icon: 'cloud-lightning'
+  color: 'orange'
