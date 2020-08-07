@@ -1,6 +1,6 @@
-name: 'Setup Aliyun CLI'
+name: 'Aliyun CLI'
 description: 'Setup Aliyun command line tool, add it to the PATH and configure authentication'
-author: 'jerray'
+author: 'hugh.li'
 inputs:
   aliyun-cli-version:
     required: false
