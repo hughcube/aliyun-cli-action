@@ -66,7 +66,9 @@ async function run() {
     const downloadedPath = await tc.downloadTool(url);
     const extractedPath = await tc[extractFunc](downloadedPath);
 
-    fs.copyFileSync(path.normalize(`${extractedPath}/aliyun.exe`), path.normalize(`${extractedPath}/aliyun`))
+    if ('win32' === platform) {
+        fs.copyFileSync(path.normalize(`${extractedPath}/aliyun.exe`), path.normalize(`${extractedPath}/aliyun`))
+    }
 
     const cachedPath = await tc.cacheDir(extractedPath, name, version);
     core.addPath(cachedPath);
