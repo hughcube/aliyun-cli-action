@@ -2,6 +2,8 @@ const tc = require('@actions/tool-cache');
 const core = require('@actions/core');
 const exec = require('@actions/exec');
 const os = require('os');
+const fs = require('fs');
+const path = require('path');
 
 const name = 'aliyun';
 const platform = os.platform();
@@ -63,6 +65,9 @@ async function run() {
     const url = `https://github.com/aliyun/aliyun-cli/releases/download/v${version}/aliyun-cli-${system}-${version}-amd64.${ext}`;
     const downloadedPath = await tc.downloadTool(url);
     const extractedPath = await tc[extractFunc](downloadedPath);
+
+    fs.copyFileSync(path.normalize(`${extractedPath}/aliyun.exe`), path.normalize(`${extractedPath}/aliyun`))
+
     const cachedPath = await tc.cacheDir(extractedPath, name, version);
     core.addPath(cachedPath);
 

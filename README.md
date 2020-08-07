@@ -26,8 +26,6 @@ steps:
 - run: aliyun oss cp ./dir oss://backet/path -r -u
 ```
 
-Use `aliyun.exe` if job runs on Windows.
-
 ## License
 
 MIT
